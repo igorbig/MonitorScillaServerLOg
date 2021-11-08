@@ -1,0 +1,52 @@
+﻿<Page x:Class="_ScillaConfigurator.tab01_Object"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:_ScillaConfigurator"
+      mc:Ignorable="d" 
+      
+      Title="tab01_Object"> <!--:DesignHeight="450" d:DesignWidth="500" -->
+    
+    <ScrollViewer>
+        <StackPanel Orientation="Vertical"  Margin="5, 10, 0, 0" Width="300">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xEC06;" VerticalAlignment="Center"/>
+                <TextBlock  Text=" Параметры объекта" FontWeight="DemiBold" />
+            </StackPanel>
+
+            <TextBlock Text="Название:" Margin="0, 5, 0, 0"/>
+            <TextBox Text="{Binding Name}"/>
+
+            <TextBlock Text="Регион:" Margin="0, 5, 0, 0"/>
+            <TextBox Text="{Binding Region}"/>
+
+            <TextBlock Text="Город:" Margin="0, 5, 0, 0"/>
+            <TextBox Text="{Binding City}"/>
+
+            <TextBlock Text="Здание:" Margin="0, 5, 0, 0"/>
+            <TextBox Text="{Binding Build}"/>
+
+            <TextBlock Text="Контактное лицо:" Margin="0, 5, 0, 0"/>
+            <TextBox Text="{Binding Person}"/>
+
+            <TextBlock Text="Телефон:" Margin="0, 5, 0, 0"/>
+            <TextBox Text="{Binding TelN}"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0, 15, 0, 0">
+                <Button Width="145" x:Name="btnUpdateCnf" Click="btnUpdateCnf_Click" Height="40">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Сохранить" HorizontalAlignment="Center"/>
+                        <TextBlock Text="параметры"/>
+                    </StackPanel>
+                </Button>
+                <Button Width="145" x:Name="btnRefreshCnf" Click="btnUpdateCnf_Click" Height="40" Margin="10, 0, 0, 0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Восстановить"/>
+                        <TextBlock Text="параметры" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

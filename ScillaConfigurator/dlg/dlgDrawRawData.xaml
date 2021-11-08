@@ -1,0 +1,264 @@
+﻿<Window x:Class="_ScillaConfigurator.dlg.dlgDrawRawData"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_ScillaConfigurator.dlg"
+        mc:Ignorable="d"
+        Title="Draw Raw data" Width="1100" Height="800" 
+
+        MinWidth="800" MinHeight="600"
+        ResizeMode="CanResizeWithGrip"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="25" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="25" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="25" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5" />
+            </Grid.RowDefinitions>
+
+
+            <Rectangle Grid.Column="0" Grid.Row="0"  Grid.ColumnSpan="13" Grid.RowSpan="5" Fill="WhiteSmoke"/>
+
+            <TextBlock Grid.Column="1"  Grid.Row="1" Text="Building:"  VerticalAlignment="Center"  HorizontalAlignment="Right" Foreground="Gray" />
+            <TextBlock Grid.Column="1"  Grid.Row="3" Text="Floor:"  VerticalAlignment="Center"  HorizontalAlignment="Right" Foreground="Gray"/>
+            <TextBlock Grid.Column="5"  Grid.Row="1" Text="Module:"  VerticalAlignment="Center"  HorizontalAlignment="Right" Foreground="Gray"/>
+            <TextBlock Grid.Column="5"  Grid.Row="3" Text="Module IP:"  VerticalAlignment="Center"  HorizontalAlignment="Right" Foreground="Gray"/>
+            <TextBlock Grid.Column="9"  Grid.Row="1" Text="MultiSensor:"  VerticalAlignment="Center"  HorizontalAlignment="Right" Foreground="Gray"/>
+            <TextBlock Grid.Column="9"  Grid.Row="3" Text="Slave address:"  VerticalAlignment="Center"  HorizontalAlignment="Right" Foreground="Gray"/>
+
+            <TextBox Grid.Column="3"  Grid.Row="1" Text="{Binding dlgValidSlaveBuilding}"  VerticalAlignment="Center"   IsEnabled="False" HorizontalAlignment="Stretch" />
+            <!--<TextBox  Text="{Binding MVSC_ModuleIpAddress_01}" Height="20" Width="50" VerticalContentAlignment="Center"  HorizontalAlignment="Left" IsEnabled="False"/>-->
+            <TextBox Grid.Column="3"  Grid.Row="3" Text="{Binding dlgValidSlaveFloor}"  VerticalAlignment="Center"  HorizontalAlignment="Stretch" IsEnabled="False" />
+            <TextBox Grid.Column="7"  Grid.Row="1" Text="{Binding dlgValidSlaveModule}"  VerticalAlignment="Center"  HorizontalAlignment="Stretch"  IsEnabled="False"/>
+            <TextBox Grid.Column="7"  Grid.Row="3" Text="{Binding dlgValidSlaveModuleIp}"  VerticalAlignment="Center"  HorizontalAlignment="Stretch"  IsEnabled="False"/>
+            <TextBox Grid.Column="11"  Grid.Row="1" Text="{Binding dlgValidSlaveModuleDev}"  VerticalAlignment="Center"  HorizontalAlignment="Stretch" IsEnabled="False" />
+            <TextBox Grid.Column="11"  Grid.Row="3" Text="{Binding dlgValidSlaveModuleDevSlaveAdr}"  VerticalAlignment="Center"  HorizontalAlignment="Stretch"  IsEnabled="False"/>
+        </Grid>
+
+
+
+
+
+        
+        <Grid Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+            
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="5" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Column="2"  Grid.Row="0" Orientation="Horizontal">
+                <TextBlock   Text="MultiSensor stage:  "  VerticalAlignment="Center"  HorizontalAlignment="Center"  />
+                <TextBlock  Name="StageMultiSensor"  FontFamily="Segoe MDL2 Assets" Text="&#xE91F;" Foreground="Silver" Background="Gray" VerticalAlignment="Center"/>
+            </StackPanel>
+
+        
+        </Grid>
+
+     
+        
+        <Grid Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="5" />
+            </Grid.RowDefinitions>
+
+            <TabControl Grid.Column="1" x:Name ="TabControlGraph" SelectedIndex="{Binding MyGraphTabControlSelectedIndex, Mode=TwoWay}" SelectionChanged="TabControlGraph_SelectionChanged"   SizeChanged="TabControlGraph_SizeChanged" 
+                         Background="#FF5D3C3C"  >
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" >
+                            <CheckBox  IsChecked="{Binding TabMSensor_InclAnl_S_o, Mode=TwoWay}" VerticalAlignment="Center" IsEnabled="false"/>
+                            <TextBlock Margin="3" Text="Smog (opt)     "  HorizontalAlignment="Right" />
+                            <TextBlock  x:Name="StageSmogOpt" FontFamily="Segoe MDL2 Assets" Text="&#xE91F;" Foreground="Silver" Background="Gray" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox  IsChecked="{Binding TabMSensor_InclAnl_T_a, Mode=TwoWay}" VerticalAlignment="Center" IsEnabled="false"/>
+                            <TextBlock Margin="3" Text="Temp (anl)     "  />
+                            <TextBlock  Name="StageTempAnl" FontFamily="Segoe MDL2 Assets" Text="&#xE91F;" Foreground="Silver" Background="Gray" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding TabMSensor_InclAnl_T_d, Mode=TwoWay}" VerticalAlignment="Center" IsEnabled="false"/>
+                            <TextBlock Margin="3" Text="Temp (dgt)     "  />
+                            <TextBlock Name="StageTempDgt" FontFamily="Segoe MDL2 Assets" Text="&#xE91F;" Foreground="Silver" Background="Gray" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding TabMSensor_InclAnl_S_e, Mode=TwoWay}" VerticalAlignment="Center" IsEnabled="false"/>
+                            <TextBlock Margin="3" Text="Smog (ech)     "  />
+                            <TextBlock Name="StageSmogEch" FontFamily="Segoe MDL2 Assets" Text="&#xE91F;" Foreground="Silver" Background="Gray" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding TabMSensor_InclAnl_Flm, Mode=TwoWay}" VerticalAlignment="Center" IsEnabled="false"/>
+                            <TextBlock Margin="3" Text="Flame     "  />
+                            <TextBlock Name="StageFlame" FontFamily="Segoe MDL2 Assets" Text="&#xE91F;" Foreground="Silver" Background="Gray" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox  IsChecked="{Binding TabMSensor_InclAnl_CO, Mode=TwoWay}" VerticalAlignment="Center" IsEnabled="false"/>
+                            <TextBlock Margin="3" Text="CO     "  />
+                            <TextBlock  Name="StageCO"  FontFamily="Segoe MDL2 Assets" Text="&#xE91F;" Foreground="Silver" Background="Gray" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox  IsChecked="{Binding TabMSensor_InclAnl_VOC, Mode=TwoWay}" VerticalAlignment="Center" IsEnabled="false"/>
+                            <TextBlock Margin="3" Text="VOC     "  />
+                            <TextBlock   Name="StageVOC" FontFamily="Segoe MDL2 Assets" Text="&#xE91F;" Foreground="Silver" Background="Gray" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+
+
+
+
+                
+            </TabControl>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock x:Name="textblok"  FontSize="12" Text="0000" HorizontalAlignment="Left" Visibility="Hidden"/>
+            </StackPanel>
+
+
+            <Canvas Grid.Column="1" x:Name="GraphCanvasMB"  Margin="5,36,5,5" UseLayoutRounding="True"    HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" IsHitTestVisible="True"  Background="Aqua"/>
+
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <Button  Name="btnCmdMRDG" Content="MRDG" Click="btnCmdMRDG_Click" Width="auto" Margin="5" />
+                <Button  Name="btnCmdDraw" Content="Draw" Click="btnCmdDraw_Click" Width="auto" Margin="5" />
+                <Button  Name="btnStartTimer" Content="Start Timer" Click="btnStartTimer_Click" Width="auto" Margin="5" />
+                <Button  Name="btnReStartDraw" Content="ReStart Drawing" Click="btnReStartDraw_Click" Width="auto" Margin="5" />
+                <Button  Name="btnResetStage" Content="Сбросить состояние" Click="btnResetStage_Click" Width="auto" Margin="5" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+  
+
+</Window>
+
+
+<!--
+        <Grid Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="11">
+            <Grid.ColumnDefinitions>
+              
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*"/>
+           
+
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+           
+            <TextBlock Grid.Column="6"  Grid.Row="0"  Text="MultiSensor stage:"  VerticalAlignment="Center"  HorizontalAlignment="Center"  />
+            <TextBox Grid.Column="6"  Grid.Row="2"  Text="Warning"  VerticalAlignment="Center"   HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" IsEnabled="False" Background="Yellow"  />
+
+
+
+            <TextBlock Grid.Column="0"  Grid.Row="4"  Text="Smog (optical)"  VerticalAlignment="Center"  HorizontalAlignment="Center" />
+            <TextBox Grid.Column="0"  Grid.Row="6"  Text="Warning"  VerticalAlignment="Center"  HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" IsEnabled="False" Background="Yellow"/>
+
+            <TextBlock Grid.Column="2"  Grid.Row="4"  Text="Temperature (analog)"  VerticalAlignment="Center"  HorizontalAlignment="Center" />
+            <TextBox Grid.Column="2"  Grid.Row="6"  Text="Alarm"  VerticalAlignment="Center"  HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" IsEnabled="False"  Background="Red"/>
+
+            <TextBlock Grid.Column="4"  Grid.Row="4"  Text="Temperature (digital)"  VerticalAlignment="Center"  HorizontalAlignment="Center" />
+            <TextBox Grid.Column="4"  Grid.Row="6"  Text="Ok"  VerticalAlignment="Center"   HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" IsEnabled="False"  Background="Green"/>
+
+            <TextBlock Grid.Column="6"  Grid.Row="4"  Text="Smog (electrochemical)"  VerticalAlignment="Center"  HorizontalAlignment="Center" />
+            <TextBox Grid.Column="6"  Grid.Row="6"  Text="Warning"  VerticalAlignment="Center"   HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" IsEnabled="False"  />
+
+            <TextBlock Grid.Column="8"  Grid.Row="4"  Text="Flame"  VerticalAlignment="Center"  HorizontalAlignment="Center" />
+            <TextBox Grid.Column="8"  Grid.Row="6"  Text="Warning"  VerticalAlignment="Center"   HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" IsEnabled="False"  />
+
+            <TextBlock Grid.Column="10"  Grid.Row="4"  Text="CO"  VerticalAlignment="Center"   HorizontalAlignment="Center"   />
+            <TextBox Grid.Column="10"  Grid.Row="6"  Text="Warning"  VerticalAlignment="Center"   HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" IsEnabled="False"  />
+
+            <TextBlock Grid.Column="12"  Grid.Row="4"  Text="VOC"  VerticalAlignment="Center"  HorizontalAlignment="Center" />
+            <TextBox Grid.Column="12"  Grid.Row="6"  Text="Warning"  VerticalAlignment="Center"   HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" IsEnabled="False"  />
+
+        </Grid>
+       -->

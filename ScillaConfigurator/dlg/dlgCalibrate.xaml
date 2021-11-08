@@ -1,0 +1,138 @@
+﻿<Window x:Class="_ScillaConfigurator.dlg.dlgCalibrate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_ScillaConfigurator.dlg"
+        mc:Ignorable="d"
+        Title="Calibrate" Height="160" Width="800"
+         MinWidth="800" MinHeight="160"
+        ResizeMode="CanResizeWithGrip"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="25" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="25" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="25" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5" />
+            </Grid.RowDefinitions>
+
+            <Rectangle Grid.Column="0" Grid.Row="0"  Grid.ColumnSpan="13" Grid.RowSpan="5" Fill="WhiteSmoke"/>
+
+            <TextBlock Grid.Column="1"  Grid.Row="1" Text="Building:"  VerticalAlignment="Center"  HorizontalAlignment="Right" Foreground="Gray" />
+            <TextBlock Grid.Column="1"  Grid.Row="3" Text="Floor:"  VerticalAlignment="Center"  HorizontalAlignment="Right" Foreground="Gray"/>
+            <TextBlock Grid.Column="5"  Grid.Row="1" Text="Module:"  VerticalAlignment="Center"  HorizontalAlignment="Right" Foreground="Gray"/>
+            <TextBlock Grid.Column="5"  Grid.Row="3" Text="Module IP:"  VerticalAlignment="Center"  HorizontalAlignment="Right" Foreground="Gray"/>
+            <TextBlock Grid.Column="9"  Grid.Row="1" Text="MultiSensor:"  VerticalAlignment="Center"  HorizontalAlignment="Right" Foreground="Gray"/>
+            <TextBlock Grid.Column="9"  Grid.Row="3" Text="Slave address:"  VerticalAlignment="Center"  HorizontalAlignment="Right" Foreground="Gray"/>
+
+            <TextBox Grid.Column="3"  Grid.Row="1" Text="{Binding dlgValidSlaveBuilding}"  VerticalAlignment="Center"   IsEnabled="False" HorizontalAlignment="Stretch" />
+            <!--<TextBox  Text="{Binding MVSC_ModuleIpAddress_01}" Height="20" Width="50" VerticalContentAlignment="Center"  HorizontalAlignment="Left" IsEnabled="False"/>-->
+            <TextBox Grid.Column="3"  Grid.Row="3" Text="{Binding dlgValidSlaveFloor}"  VerticalAlignment="Center"  HorizontalAlignment="Stretch" IsEnabled="False" />
+            <TextBox Grid.Column="7"  Grid.Row="1" Text="{Binding dlgValidSlaveModule}"  VerticalAlignment="Center"  HorizontalAlignment="Stretch"  IsEnabled="False"/>
+            <TextBox Grid.Column="7"  Grid.Row="3" Text="{Binding dlgValidSlaveModuleIp}"  VerticalAlignment="Center"  HorizontalAlignment="Stretch"  IsEnabled="False"/>
+            <TextBox Grid.Column="11"  Grid.Row="1" Text="{Binding dlgValidSlaveModuleDev}"  VerticalAlignment="Center"  HorizontalAlignment="Stretch" IsEnabled="False" />
+            <TextBox Grid.Column="11"  Grid.Row="3" Text="{Binding dlgValidSlaveModuleDevSlaveAdr}"  VerticalAlignment="Center"  HorizontalAlignment="Stretch"  IsEnabled="False"/>
+        </Grid>
+
+
+
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25" />
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="15"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="15"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="15" />
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="15"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="15"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="15" />
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="15" />
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="25"/>
+              
+              
+              
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5" />
+            </Grid.RowDefinitions>
+
+            <RadioButton Grid.Column="1"  Grid.Row="1" x:Name="radioBtn1" GroupName="Group01" Content="Everything" IsChecked="{Binding Path=CalibrTypeArray[0], Mode=TwoWay}" VerticalAlignment="Center"  Margin="2" Checked="radioBtn1_Checked"/>
+            <RadioButton Grid.Column="3"  Grid.Row="1" x:Name="radioBtn2" GroupName="Group01" Content="Smog (opt)" IsChecked="{Binding Path=CalibrTypeArray[1], Mode=TwoWay}" VerticalAlignment="Center"  Margin="2" Checked="radioBtn1_Checked"/>
+            <RadioButton Grid.Column="5"  Grid.Row="1" x:Name="radioBtn3" GroupName="Group01" Content="Temp (anl)" IsChecked="{Binding Path=CalibrTypeArray[2], Mode=TwoWay}" VerticalAlignment="Center"  Margin="2" Checked="radioBtn1_Checked" FontStyle="Italic"/>
+            <RadioButton Grid.Column="7"  Grid.Row="1" x:Name="radioBtn4" GroupName="Group01" Content="Temp (dgt)" IsChecked="{Binding Path=CalibrTypeArray[3], Mode=TwoWay}" VerticalAlignment="Center"  Margin="2" Checked="radioBtn1_Checked" FontStyle="Italic"/>
+            <RadioButton Grid.Column="9"  Grid.Row="1" x:Name="radioBtn5" GroupName="Group01" Content="Smog (ech)" IsChecked="{Binding Path=CalibrTypeArray[4], Mode=TwoWay}" VerticalAlignment="Center"  Margin="2" Checked="radioBtn1_Checked"/>
+            <RadioButton Grid.Column="11"  Grid.Row="1" x:Name="radioBtn6" GroupName="Group01" Content="Flame" IsChecked="{Binding Path=CalibrTypeArray[5], Mode=TwoWay}" VerticalAlignment="Center"  Margin="2" Checked="radioBtn1_Checked"/>
+            <RadioButton Grid.Column="13"  Grid.Row="1" x:Name="radioBtn7" GroupName="Group01" Content="CO" IsChecked="{Binding Path=CalibrTypeArray[6], Mode=TwoWay}" VerticalAlignment="Center"  Margin="2" Checked="radioBtn1_Checked" FontStyle="Italic"/>
+            <RadioButton Grid.Column="15"  Grid.Row="1" x:Name="radioBtn8" GroupName="Group01" Content="VOC" IsChecked="{Binding Path=CalibrTypeArray[7], Mode=TwoWay}" VerticalAlignment="Center"  Margin="2" Checked="radioBtn1_Checked" FontStyle="Italic"/>
+            <!--
+
+            <TextBlock Grid.Column="1"  Grid.Row="1" Text="Module Device type:"  VerticalAlignment="Center"  HorizontalAlignment="Right" />
+            <TextBlock Grid.Column="5"  Grid.Row="1" Text="SN First:"  VerticalAlignment="Center"  HorizontalAlignment="Right" />
+            <TextBlock Grid.Column="9"  Grid.Row="1" Text="SN Second:"  VerticalAlignment="Center"  HorizontalAlignment="Right" />
+            <TextBlock Grid.Column="13"  Grid.Row="1" Text="Ver. Major:"  VerticalAlignment="Center"  HorizontalAlignment="Right" />
+            <TextBlock Grid.Column="17"  Grid.Row="1" Text="Ver. Minor:"  VerticalAlignment="Center"  HorizontalAlignment="Right" />
+
+            <TextBox Grid.Column="3"  Grid.Row="1" Text="{Binding dlgValidSlaveModuleDevType}"  VerticalAlignment="Center"  HorizontalAlignment="Stretch" IsEnabled="False"/>
+            <TextBox Grid.Column="7"  Grid.Row="1" Text="{Binding dlgValidSlaveModuleDevSN_First}"  VerticalAlignment="Center"  HorizontalAlignment="Stretch" IsEnabled="False"/>
+            <TextBox Grid.Column="11"  Grid.Row="1" Text="{Binding dlgValidSlaveModuleDevSN_Second}"  VerticalAlignment="Center"  HorizontalAlignment="Stretch" IsEnabled="False"/>
+            <TextBox Grid.Column="15"  Grid.Row="1" Text="{Binding dlgValidSlaveModuleDevVerMajor}" VerticalAlignment="Center"  HorizontalAlignment="Stretch" IsEnabled="False"/>
+            <TextBox Grid.Column="19"  Grid.Row="1" Text="{Binding dlgValidSlaveModuleDevVerMinor}"  VerticalAlignment="Center"  HorizontalAlignment="Stretch" IsEnabled="False"/>
+            -->
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5" />
+            </Grid.RowDefinitions>
+
+            <Button Grid.Column="1" Grid.Row="1" Name="btnOk" IsDefault="True" Content="Ok" Click="btnOk_Click" Width="100"/>
+            <Button Grid.Column="3" Grid.Row="1" Name="btnCancel" IsCancel="True" Content="Cancel" Click="btnOk_Click_1" Width="100"/>
+        </Grid>
+    </Grid>
+</Window>

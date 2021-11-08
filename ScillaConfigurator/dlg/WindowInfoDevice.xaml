@@ -1,0 +1,36 @@
+﻿<Window x:Class="_ScillaConfigurator.dlg.WindowInfoDevice"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_ScillaConfigurator.dlg"
+        mc:Ignorable="d"
+     Height="450" Width="647">
+    <!--   Title="WindowInfoDevice" Height="450" Width="647">-->
+    <Grid Height="419" VerticalAlignment="Bottom">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="483*"/>
+            <ColumnDefinition Width="124*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="19*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Margin="10" Grid.ColumnSpan="7">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="27" />
+                <RowDefinition Height="1" />
+                <RowDefinition Height="Auto" MinHeight="203" />
+            </Grid.RowDefinitions>
+
+   <!--         <TextBlock Margin="0,0,0,10">Состояние устройства:</TextBlock>-->
+            <TextBlock Name="deviceName"  Margin="0,0,0,10"></TextBlock>
+            <TextBox Name="infodeviceBox" MinWidth="250" Margin="0,0,75,-165" Grid.Row="2"></TextBox>
+
+            <WrapPanel Grid.Row="2" HorizontalAlignment="Right" Margin="0,15,0,0" Width="70">
+                <Button IsDefault="True" Click="Accept_Click" MinWidth="60" Margin="0,0,10,0" Content="OK"/>
+            </WrapPanel>
+        </Grid>
+    </Grid>
+</Window>
