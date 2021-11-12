@@ -30,24 +30,24 @@ namespace _ScillaConfigurator
         //static public bool ReadyAllData = false;
 
         //public static int[,] DataSmog = new int[3, 100];
-        public static int[] DataSmogTr = new int[2];
+        public static int[] DataInput1Tr = new int[2];
 
         //public static int[] DataTemp = new int[100];
-        public static int[] DataTempTr = new int[2];
+        public static int[] DataInput2Tr = new int[2];
 
         // public static int[] DataTempDig = new int[100];
-        public static int[] DataTempDigTr = new int[2];
+        public static int[] DataInput3Tr = new int[2];
 
         //public static int[] DataSmogE = new int[100];
-        public static int[] DataSmogETr = new int[2];
+     //   public static int[] DataInput4Tr = new int[2];
 
         //public static int[,] DataFlame = new int[8, 100];
         //public static int[] DataFlameSTD = new int[100];
-        public static int[] DataFlameTr1 = new int[2];
-        public static int[] DataFlameTr2 = new int[2];
+ //       public static int[] DataFlameTr1 = new int[2];
+ //       public static int[] DataFlameTr2 = new int[2];
 
         //public static int[] DataCO = new int[100];
-        public static int[] DataCOTr = new int[2];
+  //      public static int[] DataCOTr = new int[2];
 
         public void DrawGraph(Canvas GraphCanvas, int TabControlSelectedIndex)
         {
@@ -220,7 +220,7 @@ namespace _ScillaConfigurator
       //      String[] strForFlame = new String[] { "Flame detector: 1, 2, 3, 4, 5, 6", "Last 3 AVR Min Value", "Last 3 AVR Standart Deviation" };
             switch (TabControlSelectedIndex)
             {
-                case 0://Smog (optical)
+                case 0://Input1 (optical)
                     text2 = new TextBlock();
                     text2.Text = "Input1"; //F1 UtcNow "o"
                     text2.FontSize = 12;
@@ -235,7 +235,7 @@ namespace _ScillaConfigurator
 
              
    //-{}             case 1://Temperature (analog)
-                case 1://Input1(analog)
+                case 1://Input2(analog)
 
                     text2 = new TextBlock();
                     text2.Text = "Input2"; //F1 UtcNow "o"
@@ -249,7 +249,7 @@ namespace _ScillaConfigurator
                     GraphCanvas.Children.Add(text2);
                     break;
     
-                case 2://Input2
+                case 2://Input3
                     text2 = new TextBlock();
                     text2.Text = "Input3"; //F1 UtcNow "o"
                     text2.FontSize = 12;
@@ -262,7 +262,7 @@ namespace _ScillaConfigurator
                     GraphCanvas.Children.Add(text2);
 
                     break;
-                case 3://Input3
+                case 3://Relay
                     text2 = new TextBlock();
                     text2.Text = "Input4"; //F1 UtcNow "o"
                     text2.FontSize = 12;
@@ -274,43 +274,7 @@ namespace _ScillaConfigurator
                     text2.SetValue(Canvas.TopProperty, (double)(marginY1));
                     GraphCanvas.Children.Add(text2);
                     break;
-                case 4://Input4
-                    text2 = new TextBlock();
-                    text2.Text = "Relay"; //F1 UtcNow "o"
-                    text2.FontSize = 12;
-                    text2.Foreground = SCB[2];
-                    text2.Width = 200;//marginX1;
-                    text2.SetValue(Canvas.LeftProperty, (double)(marginX2 - 10 - 200));// marginX1 - pointFourZero.X
-                    text2.TextAlignment = TextAlignment.Right;
-                    text2.VerticalAlignment = VerticalAlignment.Top;
-                    text2.SetValue(Canvas.TopProperty, (double)(marginY1));
-                    GraphCanvas.Children.Add(text2);
-                    break;
-                case 5://CO
-                    text2 = new TextBlock();
-                    text2.Text = "Relay"; //F1 UtcNow "o"
-                    text2.FontSize = 12;
-                    text2.Foreground = SCB[2];
-                    text2.Width = 200;//marginX1;
-                    text2.SetValue(Canvas.LeftProperty, (double)(marginX2 - 10 - 200));// marginX1 - pointFourZero.X
-                    text2.TextAlignment = TextAlignment.Right;
-                    text2.VerticalAlignment = VerticalAlignment.Top;
-                    text2.SetValue(Canvas.TopProperty, (double)(marginY1));
-                    GraphCanvas.Children.Add(text2);
-                    break;
-                case 6://VOC
-                    text2 = new TextBlock();
-                    text2.Text = "VOC"; //F1 UtcNow "o"
-                    text2.FontSize = 12;
-                    text2.Foreground = SCB[2];
-                    text2.Width = 200;//marginX1;
-                    text2.SetValue(Canvas.LeftProperty, (double)(marginX2 - 10 - 200));// marginX1 - pointFourZero.X
-                    text2.TextAlignment = TextAlignment.Right;
-                    text2.VerticalAlignment = VerticalAlignment.Top;
-                    text2.SetValue(Canvas.TopProperty, (double)(marginY1));
-                    GraphCanvas.Children.Add(text2);
-                    break;
-            }
+             }
 
 
 
@@ -319,8 +283,8 @@ namespace _ScillaConfigurator
             line.UseLayoutRounding = true;
             line.X1 = marginX1 + App.iReady * (marginX2 - marginX1) / 100;
             line.X2 = marginX1 + App.iReady * (marginX2 - marginX1) / 100;
-            line.Y1 = marginY1;//(marginY2) - DataSmogTr[i] * (marginY2 - marginY1) / 4096;
-            line.Y2 = marginY2;//(marginY2) - DataSmogTr[i] * (marginY2 - marginY1) / 4096;
+            line.Y1 = marginY1;//(marginY2) - DataInput1[i] * (marginY2 - marginY1) / 4096;
+            line.Y2 = marginY2;//(marginY2) - DataInput1[i] * (marginY2 - marginY1) / 4096;
             line.Stroke = Brushes.White;
             line.StrokeDashArray = new DoubleCollection() { 2, 2 }; //dashValues;
             line.StrokeThickness = 1.0;//0.7;//0.8;
@@ -344,8 +308,8 @@ namespace _ScillaConfigurator
                         line.UseLayoutRounding = true;
                         line.X1 = marginX1;
                         line.X2 = marginX2;
-                        line.Y1 = (marginY2) - DataTempTr[i] * (marginY2 - marginY1) / 4096;
-                        line.Y2 = (marginY2) - DataTempTr[i] * (marginY2 - marginY1) / 4096;
+                        line.Y1 = (marginY2) - DataInput1Tr[i] * (marginY2 - marginY1) / 4096;
+                        line.Y2 = (marginY2) - DataInput1Tr[i] * (marginY2 - marginY1) / 4096;
                         line.Stroke = SCB_T[i];
                         line.StrokeDashArray = new DoubleCollection() { 6, 4 }; //dashValues;
                         line.StrokeThickness = 2.0;//0.7;//0.8;
@@ -358,14 +322,15 @@ namespace _ScillaConfigurator
                         el.Width = 4;
                         el.Height = 4;
                         el.SetValue(Canvas.LeftProperty, (double)(marginX1 - 2) + i * (marginX2 - marginX1) / 100);
-                        el.SetValue(Canvas.TopProperty, (double)(marginY2 - 2) - App.DataTemp[i] * (marginY2 - marginY1) / 4096);
+    //-{}
+                        el.SetValue(Canvas.TopProperty, (double)(marginY2 - 2) - App.DataInput1[i] * (marginY2 - marginY1) / 4096);
                         el.Fill = SCB[2];//SCB_Line[indexData];
                         GraphCanvas.Children.Add(el);
                     }
 
                     break;
 
-                case 1://Temperature (analog)
+                case 1://Temperature (analog)//input2
 
                     for (int i = 0; i < 2; i++)
                     {
@@ -373,8 +338,8 @@ namespace _ScillaConfigurator
                         line.UseLayoutRounding = true;
                         line.X1 = marginX1;
                         line.X2 = marginX2;
-                        line.Y1 = (marginY2) - DataTempTr[i] * (marginY2 - marginY1) / 4096;
-                        line.Y2 = (marginY2) - DataTempTr[i] * (marginY2 - marginY1) / 4096;
+                        line.Y1 = (marginY2) - DataInput2Tr[i] * (marginY2 - marginY1) / 4096;
+                        line.Y2 = (marginY2) - DataInput2Tr[i] * (marginY2 - marginY1) / 4096;
                         line.Stroke = SCB_T[i];
                         line.StrokeDashArray = new DoubleCollection() { 6, 4 }; //dashValues;
                         line.StrokeThickness = 2.0;//0.7;//0.8;
@@ -387,20 +352,20 @@ namespace _ScillaConfigurator
                         el.Width = 4;
                         el.Height = 4;
                         el.SetValue(Canvas.LeftProperty, (double)(marginX1 - 2) + i * (marginX2 - marginX1) / 100);
-                        el.SetValue(Canvas.TopProperty, (double)(marginY2 - 2) - App.DataTemp[i] * (marginY2 - marginY1) / 4096);
+                                 el.SetValue(Canvas.TopProperty, (double)(marginY2 - 2) - App.DataInput2[i] * (marginY2 - marginY1) / 4096);
                         el.Fill = SCB[2];//SCB_Line[indexData];
                         GraphCanvas.Children.Add(el);
                     }
                     break;
-                case 2://Temperature (digital)
+                case 2://Temperature (digital)//input3
                     for (int i = 0; i < 2; i++)
                     {
                         line = new Line();
                         line.UseLayoutRounding = true;
                         line.X1 = marginX1;
                         line.X2 = marginX2;
-                        line.Y1 = (marginY2) - DataTempTr[i] * (marginY2 - marginY1) / 4096;
-                        line.Y2 = (marginY2) - DataTempTr[i] * (marginY2 - marginY1) / 4096;
+                        line.Y1 = (marginY2) - DataInput3Tr[i] * (marginY2 - marginY1) / 4096;
+                        line.Y2 = (marginY2) - DataInput3Tr[i] * (marginY2 - marginY1) / 4096;
                         line.Stroke = SCB_T[i];
                         line.StrokeDashArray = new DoubleCollection() { 6, 4 }; //dashValues;
                         line.StrokeThickness = 2.0;//0.7;//0.8;
@@ -413,41 +378,13 @@ namespace _ScillaConfigurator
                         el.Width = 4;
                         el.Height = 4;
                         el.SetValue(Canvas.LeftProperty, (double)(marginX1 - 2) + i * (marginX2 - marginX1) / 100);
-                        el.SetValue(Canvas.TopProperty, (double)(marginY2 - 2) - App.DataTemp[i] * (marginY2 - marginY1) / 4096);
+                        el.SetValue(Canvas.TopProperty, (double)(marginY2 - 2) - App.DataInput3[i] * (marginY2 - marginY1) / 4096);
                         el.Fill = SCB[2];//SCB_Line[indexData];
                         GraphCanvas.Children.Add(el);
                     }
                     break;
 
-                case 3://Smog (electrochemical)
-
-                    for (int i = 0; i < 2; i++)
-                    {
-                        line = new Line();
-                        line.UseLayoutRounding = true;
-                        line.X1 = marginX1;
-                        line.X2 = marginX2;
-                        line.Y1 = (marginY2) - DataTempTr[i] * (marginY2 - marginY1) / 4096;
-                        line.Y2 = (marginY2) - DataTempTr[i] * (marginY2 - marginY1) / 4096;
-                        line.Stroke = SCB_T[i];
-                        line.StrokeDashArray = new DoubleCollection() { 6, 4 }; //dashValues;
-                        line.StrokeThickness = 2.0;//0.7;//0.8;
-                        GraphCanvas.Children.Add(line);
-                        line = null;
-                    }
-                    for (int i = start; i < finish; i++)
-                    {
-                        el = new Ellipse();
-                        el.Width = 4;
-                        el.Height = 4;
-                        el.SetValue(Canvas.LeftProperty, (double)(marginX1 - 2) + i * (marginX2 - marginX1) / 100);
-                        el.SetValue(Canvas.TopProperty, (double)(marginY2 - 2) - App.DataTemp[i] * (marginY2 - marginY1) / 4096);
-                        el.Fill = SCB[2];//SCB_Line[indexData];
-                        GraphCanvas.Children.Add(el);
-                    }
-
-                    break;
-                case 4://Flame detector
+                  case 3://Flame detector  relay
 
                     for (int i = 0; i < 2; i++)
                     {
@@ -455,8 +392,8 @@ namespace _ScillaConfigurator
                         line.UseLayoutRounding = true;
                         line.X1 = marginX1;
                         line.X2 = marginX2;
-                        line.Y1 = (marginY2) - DataTempTr[i] * (marginY2 - marginY1) / 4096;
-                        line.Y2 = (marginY2) - DataTempTr[i] * (marginY2 - marginY1) / 4096;
+                      //  line.Y1 = (marginY2) - DataInput2[i] * (marginY2 - marginY1) / 4096;
+                    //    line.Y2 = (marginY2) - DataInput2[i] * (marginY2 - marginY1) / 4096;
                         line.Stroke = SCB_T[i];
                         line.StrokeDashArray = new DoubleCollection() { 6, 4 }; //dashValues;
                         line.StrokeThickness = 2.0;//0.7;//0.8;
@@ -469,45 +406,14 @@ namespace _ScillaConfigurator
                         el.Width = 4;
                         el.Height = 4;
                         el.SetValue(Canvas.LeftProperty, (double)(marginX1 - 2) + i * (marginX2 - marginX1) / 100);
-                        el.SetValue(Canvas.TopProperty, (double)(marginY2 - 2) - App.DataTemp[i] * (marginY2 - marginY1) / 4096);
+                     //   el.SetValue(Canvas.TopProperty, (double)(marginY2 - 2) - App.DataInput4[i] * (marginY2 - marginY1) / 4096);
                         el.Fill = SCB[2];//SCB_Line[indexData];
                         GraphCanvas.Children.Add(el);
                     }
 
                     break;
 
-                case 5://CO
-
-                    for (int i = 0; i < 2; i++)
-                    {
-                        line = new Line();
-                        line.UseLayoutRounding = true;
-                        line.X1 = marginX1;
-                        line.X2 = marginX2;
-                        line.Y1 = (marginY2) - DataCOTr[i] * (marginY2 - marginY1) / 4096;
-                        line.Y2 = (marginY2) - DataCOTr[i] * (marginY2 - marginY1) / 4096;
-                        line.Stroke = SCB_T[i];
-                        line.StrokeDashArray = new DoubleCollection() { 6, 4 }; //dashValues;
-                        line.StrokeThickness = 2.0;//0.7;//0.8;
-                        GraphCanvas.Children.Add(line);
-                        line = null;
-                    }
-
-                    for (int i = start; i < finish; i++)
-                    {
-                        el = new Ellipse();
-                        el.Width = 4;
-                        el.Height = 4;
-                        el.SetValue(Canvas.LeftProperty, (double)(marginX1 - 2) + i * (marginX2 - marginX1) / 100);
-                        el.SetValue(Canvas.TopProperty, (double)(marginY2 - 2) - App.DataCO[i] * (marginY2 - marginY1) / 4096);
-                        el.Fill = SCB[2];//SCB_Line[indexData];
-                        GraphCanvas.Children.Add(el);
-                    }
-
-                    break;
-                case 6://VOC
-                    break;
-            }
+              }
         }
     }
 }

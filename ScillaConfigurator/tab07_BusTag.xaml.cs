@@ -43,7 +43,7 @@ namespace _ScillaConfigurator
             App.myApp.sBusTag.Input1 = App.myApp.VMS.TabBusTagInput1;
             App.myApp.sBusTag.Input2 = App.myApp.VMS.TabBusTagInput2;
             App.myApp.sBusTag.Input3 = App.myApp.VMS.TabBusTagInput3;
-            App.myApp.sBusTag.Input4 = App.myApp.VMS.TabBusTagInput4;
+
             App.myApp.sBusTag.Relay = App.myApp.VMS.TabBusTagRelay;
             //}
 
@@ -86,12 +86,28 @@ namespace _ScillaConfigurator
 //Ошибка  ViewModelCnf BusTagRelay Button.IsEnabled, имя — "btnSetResetBusTagRelay"	Boolean Свойство BusTagRelay не найдено для объекта типа ViewModelCnf.
        private void btnSetResetBusTagRelay_Click(object sender, RoutedEventArgs e)
         {
-            if (btnSetResetBusTagRelayState) { 
+              byte[] ParamData = new byte[4];
+                int ParamId = 70;
+          if (btnSetResetBusTagRelayState) { 
             btnSetResetBusTagRelay.Content = "Включить РЕЛЕ";
+    
+                //-{}           ParamData[0] = (byte)App.myApp.VMS.TabMSensorSlaveAddress;//(byte)App.myApp.VMM.MHRS_SlaveAddressSend;
+                ParamData[0] = (byte)App.myApp.VMS.TabBusTagSlaveAddress;//(byte)App.myApp.VMM.MHRS_SlaveAddressSend;
+                ParamData[1] = 14;//RegisterAddres
+                ParamData[2] = 255;//Beep
+                ParamData[3] = 255;//Beep
+                short CmdLen = 4 + 1 + 4;// CmdId(4) + ParamId(1) + ParamData(4)
+                App.myApp.SendCmd(App.myApp.sBusTag.Owner.getIpAddress(), CmdLen, "ISSR", "MHRS", ParamId, ParamData, ParamData.Length, false);
                 btnSetResetBusTagRelayState = false;
             }
             else {
                 btnSetResetBusTagRelay.Content = "Выключить РЕЛЕ";
+                ParamData[0] = (byte)App.myApp.VMS.TabBusTagSlaveAddress;//(byte)App.myApp.VMM.MHRS_SlaveAddressSend;
+                ParamData[1] = 14;//RegisterAddres
+                ParamData[2] = 0;//Beep
+                ParamData[3] = 0;//Beep
+                short CmdLen = 4 + 1 + 4;// CmdId(4) + ParamId(1) + ParamData(4)
+                App.myApp.SendCmd(App.myApp.sBusTag.Owner.getIpAddress(), CmdLen, "ISSR", "MHRS", ParamId, ParamData, ParamData.Length, false);
                 btnSetResetBusTagRelayState = true;
             }
         }
@@ -136,8 +152,7 @@ namespace _ScillaConfigurator
             modalWindow.VM_DlgDrawRawDataBusTag.TabBusTagInput1 = App.myApp.VMS.TabBusTagInput1;
             modalWindow.VM_DlgDrawRawDataBusTag.TabBusTagInput2 = App.myApp.VMS.TabBusTagInput2;
             modalWindow.VM_DlgDrawRawDataBusTag.TabBusTagInput3 = App.myApp.VMS.TabBusTagInput3;
-            modalWindow.VM_DlgDrawRawDataBusTag.TabBusTagInput4 = App.myApp.VMS.TabBusTagInput4;
- //-{}           modalWindow.VM_DlgDrawRawDataBusTag.TabBusTagRelay = App.myApp.VMS.TabBusTagRelay;
+  //-{}           modalWindow.VM_DlgDrawRawDataBusTag.TabBusTagRelay = App.myApp.VMS.TabBusTagRelay;
       
             //modalWindow.VM_DlgDrawRawDataBusTag.dlgValidSlaveModuleDevSlaveAdr = "";
 

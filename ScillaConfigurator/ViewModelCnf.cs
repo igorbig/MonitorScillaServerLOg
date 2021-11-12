@@ -1368,10 +1368,7 @@ namespace _ScillaConfigurator
         public bool Input3 { get { return _Input3; } set { _Input3 = value; NotifyPropertyChanged("_Input3"); } }
 
 
-        private bool _Input4 = true;
-        public bool Input4 { get { return _Input4; } set { _Input4 = value; NotifyPropertyChanged("_Input4"); } }
-
-
+   
         private bool _Relay = true;
         public bool Relay { get { return _Relay; } set { _Relay = value; NotifyPropertyChanged("_Relay"); } }
 
@@ -1395,11 +1392,10 @@ namespace _ScillaConfigurator
             writer.Write(PositionX);
             writer.Write(PositionY);
             writer.Write(SlaveAddress);
-            writer.Write(Input1);
+    /*-{        writer.Write(Input1);
             writer.Write(Input2);
             writer.Write(Input3);
-            writer.Write(Input4);
-            writer.Write(Relay);
+                writer.Write(Relay);*/
         }
 
         public void Read(BinaryReader reader)
@@ -1675,7 +1671,7 @@ namespace _ScillaConfigurator
         public int TabBusTagSlaveAddress { get { return _TabBusTagSlaveAddress; } set { _TabBusTagSlaveAddress = value; NotifyPropertyChanged("TabBusTagSlaveAddress"); } }
 
         private bool _TabBusTagInput1 = true;
-    /*-{ }*/   public bool TabBusTagInput1 { get { return _TabBusTagInput1; } set { _TabBusTagInput1 = value; NotifyPropertyChanged("TabBusTagInput1"); } }
+       public bool TabBusTagInput1 { get { return _TabBusTagInput1; } set { _TabBusTagInput1 = value; NotifyPropertyChanged("TabBusTagInput1"); } }
 
         private bool _TabBusTagInput2 = true;
         public bool TabBusTagInput2 { get { return _TabBusTagInput2; } set { _TabBusTagInput2 = value; NotifyPropertyChanged("TabBusTagInput2"); } }
@@ -1683,9 +1679,9 @@ namespace _ScillaConfigurator
         private bool _TabBusTagInput3 = true;
         public bool TabBusTagInput3 { get { return _TabBusTagInput3; } set { _TabBusTagInput3 = value; NotifyPropertyChanged("TabBusTagInput3"); } }
 
-        private bool _TabBusTagInput4 = true;
+     /*-{   private bool _TabBusTagInput4 = true;
         public bool TabBusTagInput4 { get { return _TabBusTagInput4; } set { _TabBusTagInput4 = value; NotifyPropertyChanged("TabBusTagInput4"); } }
-
+ }*/
    //     private bool _TabMSensor_InclAnl_Flm = true;
   //      public bool TabMSensor_InclAnl_Flm { get { return _TabMSensor_InclAnl_Flm; } set { _TabMSensor_InclAnl_Flm = value; NotifyPropertyChanged("TabMSensor_InclAnl_Flm"); } }
   

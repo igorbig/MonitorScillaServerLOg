@@ -75,6 +75,16 @@ namespace _ScillaConfigurator
 
         public static int[] DataCO = new int[100];
         public static int[] DataCOTr = new int[2];
+        //////////////////////////////////////////////////
+        public static int[] DataInput1 = new int[100];
+        public static int[] DataInput1Tr = new int[2];
+
+        public static int[] DataInput2 = new int[100];
+        public static int[] DataInput2Tr = new int[2];
+
+        public static int[] DataInput3 = new int[100];
+        public static int[] DataInput3Tr = new int[2];
+
 
         /// <summary>
         /// //////////////////////////////////////////////////////////////////////////////
@@ -1192,7 +1202,11 @@ namespace _ScillaConfigurator
 
                                         DataCO[iReady] = MRDG_RawData[16];
 
+                                        /////////////////////////////////// BusTag ///////////////////////////////
 
+                                        DataInput1[iReady] = MRDG_RawData[5];
+                                        DataInput2[iReady] = MRDG_RawData[6];
+                                        DataInput3[iReady] = MRDG_RawData[7];//-?
 
 
                                         iReady++;

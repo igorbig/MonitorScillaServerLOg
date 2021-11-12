@@ -135,16 +135,7 @@
                     </TabItem.Header>
                 </TabItem>
 
-                <TabItem>
-                    <TabItem.Header>
-                        <StackPanel Orientation="Horizontal">
-                            <CheckBox IsChecked="{Binding TabBusTagInput4, Mode=TwoWay}" VerticalAlignment="Center" IsEnabled="false"/>
-                            <TextBlock Margin="3" Text="Вход 4     "  />
-                            <TextBlock Name="StageInput4" FontFamily="Segoe MDL2 Assets" Text="&#xE91F;" Foreground="Silver" Background="Gray" VerticalAlignment="Center"/>
-                        </StackPanel>
-                    </TabItem.Header>
-                </TabItem>
-                <TabItem>
+                   <TabItem>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <CheckBox IsChecked="{Binding TabBusTagRelay, Mode=TwoWay}" VerticalAlignment="Center" IsEnabled="false"/>

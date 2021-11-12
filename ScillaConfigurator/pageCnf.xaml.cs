@@ -415,10 +415,9 @@ namespace _ScillaConfigurator
                 App.myApp.VMS.TabBusTagSlaveAddress = App.myApp.sBusTag.SlaveAddress;
 
                 App.myApp.VMS.TabBusTagInput1 = App.myApp.sBusTag.Input1;
-                App.myApp.VMS.TabMSensor_InclAnl_T_a = App.myApp.sBusTag.Input2;
-                App.myApp.VMS.TabMSensor_InclAnl_T_d = App.myApp.sBusTag.Input3;
-                App.myApp.VMS.TabMSensor_InclAnl_S_e = App.myApp.sBusTag.Input4;
-                App.myApp.VMS.TabMSensor_InclAnl_Flm = App.myApp.sBusTag.Relay;
+                App.myApp.VMS.TabBusTagInput2 = App.myApp.sBusTag.Input2;
+                App.myApp.VMS.TabBusTagInput3 = App.myApp.sBusTag.Input3;
+                App.myApp.VMS.TabBusTagRelay = App.myApp.sBusTag.Relay;
 
                 App.myApp.Plan.Draw();
                 tbProperties.SelectedIndex = 7;//

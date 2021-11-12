@@ -125,7 +125,8 @@ namespace _ScillaConfigurator
                     break;
             }
 
-            switch ((App.MRDG_RawData[1] >> 4) & 0x3)
+          switch ((App.MRDG_RawData[1] >> 4) & 0x3)
+ //-?          switch ((App.MRDG_RawData[1] >> 3) & 0x3)
             {
                 case 0:
                     StageInput3.Foreground = Brushes.Green;
@@ -139,19 +140,7 @@ namespace _ScillaConfigurator
             }
 
 
-            switch ((App.MRDG_RawData[1] >> 6) & 0x3)
-            {
-                case 0:
-                    StageInput4.Foreground = Brushes.Green;
-                    break;
-                case 1:
-                    StageInput4.Foreground = Brushes.Yellow;
-                    break;
-                case 2:
-                    StageInput4.Foreground = Brushes.Red;
-                    break;
-            }
-
+  
             switch ((App.MRDG_RawData[1] >> 8) & 0x3)
             {
                 case 0:
@@ -260,7 +249,7 @@ namespace _ScillaConfigurator
 
  //-{}           ParamData[0] = (byte)App.myApp.VMS.TabMSensorSlaveAddress;//(byte)App.myApp.VMM.MHRS_SlaveAddressSend;
             ParamData[0] = (byte)App.myApp.VMS.TabBusTagSlaveAddress;//(byte)App.myApp.VMM.MHRS_SlaveAddressSend;
-            ParamData[1] = 24;//RegisterAddres
+            ParamData[1] = 24;//RegisterAddress
             ParamData[2] = 0;//Beep
             ParamData[3] = 0;//Beep
             short CmdLen = 4 + 1 + 4;// CmdId(4) + ParamId(1) + ParamData(4)
@@ -313,10 +302,7 @@ namespace _ScillaConfigurator
         private bool _TabBusTagInput3 = true;
         public bool TabBusTagInput3 { get { return _TabBusTagInput3; } set { _TabBusTagInput3 = value; NotifyPropertyChanged("TabBusTagInput3"); } }
 
-        private bool _TabBusTagInput4 = true;
-        public bool TabBusTagInput4 { get { return _TabBusTagInput4; } set { _TabBusTagInput4 = value; NotifyPropertyChanged("TabBusTagInput4"); } }
-
-        private bool _TabBusTagRelay = true;
+         private bool _TabBusTagRelay = true;
         public bool TabBusTagRelay { get { return _TabBusTagRelay; } set { _TabBusTagRelay = value; NotifyPropertyChanged("TabBusTagRelay"); } }
 
  

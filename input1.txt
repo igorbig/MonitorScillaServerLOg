@@ -1,0 +1,47 @@
+
+                case 0://Input1 (optical)	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\GraphBusTag.cs	223	26
+                    text2.Text = "Input1"; //F1 UtcNow "o"	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\GraphBusTag.cs	225	35
+                case 0://input1	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\GraphBusTag.cs	304	26
+                App.myApp.VMS.TabBusTagInput1 = App.myApp.sBusTag.Input1;	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\pageCnf.xaml.cs	417	67
+            App.myApp.sBusTag.Input1 = App.myApp.VMS.TabBusTagInput1;	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\tab07_BusTag.xaml.cs	43	31
+        public bool Input1 { get { return _Input1; } set { _Input1 = value; NotifyPropertyChanged("_Input1"); } }	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\ViewModelCnf.cs	1361	21
+    /*-{        writer.Write(Input1);	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\ViewModelCnf.cs	1395	30
+        /*-{   Input1 = reader.ReadBoolean();	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\ViewModelCnf.cs	1411	16
+
+///////////////////////////////////////////////////
+D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\App.xaml.cs
+        public static int[] DataInput1Tr = new int[2];	
+        public static int[] DataInput1 = new int[100];
+        DataInput1[iReady] = MRDG_RawData[5];
+//---------------------------------------------------------------
+dlgDrawRawDataBusTag.xaml	
+<CheckBox  IsChecked="{Binding TabBusTagInput1, Mode=TwoWay}" VerticalAlignment="Center" IsEnabled="false"/>	
+<TextBlock  x:Name="StageInput1" FontFamily="Segoe MDL2 Assets" Text="&#xE91F;" Foreground="Silver" Background="Gray" VerticalAlignment="Center" HorizontalAlignment="Right"/>	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\dlgDrawRawDataBusTag.xaml	115	54
+//--------------------------------------------------------------------------
+dlgDrawRawDataBusTag.xaml.cs
+        StageInput1.Foreground = Brushes.Green;
+        StageInput1.Foreground = Brushes.Yellow;
+         StageInput1.Foreground = Brushes.Red;    
+        private bool _TabBusTagInput1 = true;
+        public bool TabBusTagInput1 { get { return _TabBusTagInput1; } set { _TabBusTagInput1 = value; NotifyPropertyChanged("TabBusTagInput1"); } }	
+//-----------------------------------------------------------------------------------------------
+GraphBusTag.cs
+        public static int[] DataInput1Tr = new int[2];	
+        text2.Text = "Input1"; //F1 UtcNow "o"	
+         case 1://Input1(analog)	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\GraphBusTag.cs	238	26
+          line.Y1 = marginY1;//(marginY2) - DataInput1[i] * (marginY2 - marginY1) / 4096;	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\GraphBusTag.cs	322	51
+          line.Y2 = marginY2;//(marginY2) - DataInput1[i] * (marginY2 - marginY1) / 4096;	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\GraphBusTag.cs	323	51
+          case 0://input1	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\GraphBusTag.cs	340	26
+                        line.Y1 = (marginY2) - DataInput1Tr[i] * (marginY2 - marginY1) / 4096;	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\GraphBusTag.cs	347	52
+                        line.Y2 = (marginY2) - DataInput1Tr[i] * (marginY2 - marginY1) / 4096;	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\GraphBusTag.cs	348	52
+                        el.SetValue(Canvas.TopProperty, (double)(marginY2 - 2) - App.DataInput1[i] * (marginY2 - marginY1) / 4096);	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\GraphBusTag.cs	362	90
+                App.myApp.VMS.TabBusTagInput1 = App.myApp.sBusTag.Input1;	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\pageCnf.xaml.cs	417	40
+            <TextBox Text="{Binding TabBusTagInput1, Mode=TwoWay}" />	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\tab07_BusTag.xaml	34	46
+            App.myApp.sBusTag.Input1 = App.myApp.VMS.TabBusTagInput1;	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\tab07_BusTag.xaml.cs	43	31
+            modalWindow.VM_DlgDrawRawDataBusTag.TabBusTagInput1 = App.myApp.VMS.TabBusTagInput1;	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\tab07_BusTag.xaml.cs	152	58
+        private bool _Input1 = true;	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\ViewModelCnf.cs	1360	23
+        public bool Input1 { get { return _Input1; } set { _Input1 = value; NotifyPropertyChanged("_Input1"); } }	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\ViewModelCnf.cs	1361	21
+    /*-{        writer.Write(Input1);	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\ViewModelCnf.cs	1395	30
+        /*-{   Input1 = reader.ReadBoolean();	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\ViewModelCnf.cs	1411	16
+        private bool _TabBusTagInput1 = true;	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\ViewModelCnf.cs	1673	32
+       public bool TabBusTagInput1 { get { return _TabBusTagInput1; } set { _TabBusTagInput1 = value; NotifyPropertyChanged("TabBusTagInput1"); } }	D:\Projects\VS_Csh\Code\MonitorScilla\ScillaConfigurator\ViewModelCnf.cs	1674	29
